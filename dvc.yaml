@@ -1,10 +1,4 @@
 stages:
-  get_data:
-    cmd: python src/01_get_data.py
-    deps:
-    - src/01_get_data.py
-    outs:
-    - data/recruitment_details.csv
   data-prep:
     cmd: python src/02_data_prep.py
     deps:
