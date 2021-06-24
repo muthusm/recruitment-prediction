@@ -1,0 +1,38 @@
+schema: '2.0'
+stages:
+  get_data:
+    cmd: python src/01_get_data.py
+    deps:
+    - path: src/01_get_data.py
+      md5: 6e4c5c649167146e044e9803f416c36f
+      size: 234
+    outs:
+    - path: data/recruitment_details.csv
+      md5: a0859f000493d2c3231d07fc7aeba161
+      size: 19712
+  data-prep:
+    cmd: python src/02_data_prep.py
+    deps:
+    - path: data/recruitment_details.csv
+      md5: a0859f000493d2c3231d07fc7aeba161
+      size: 19712
+    - path: src/02_data_prep.py
+      md5: e6d4fcfa223b92f5c52f7a348ed9d4f8
+      size: 1455
+    outs:
+    - path: data/prepared_data.csv
+      md5: 02131daa11de3c5cfb84c37e0e82c7e9
+      size: 21086
+  train:
+    cmd: python src/03_train.py
+    deps:
+    - path: data/prepared_data.csv
+      md5: 02131daa11de3c5cfb84c37e0e82c7e9
+      size: 21086
+    - path: src/03_train.py
+      md5: d1ab180d211668c00853fd3ced2ce0ce
+      size: 1644
+    outs:
+    - path: data/metrics.json
+      md5: 709bb2630d53fd44985a7cde597144df
+      size: 88
