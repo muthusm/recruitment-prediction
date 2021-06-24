@@ -31,7 +31,7 @@ X_train,X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_s
 
 # KNN
 
-modelKNN = KNeighborsClassifier(n_neighbors = 12, weights='distance')
+modelKNN = KNeighborsClassifier(n_neighbors = 14, weights='distance')
 modelKNN.fit(X_train, y_train)
 predictionsKNN = modelKNN.predict(X_test)
 accuracyKNN = metrics.accuracy_score(y_test, predictionsKNN)  
