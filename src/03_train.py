@@ -27,11 +27,11 @@ z_scaled = min_max_scaler.fit_transform(z)
 X = pd.DataFrame(z_scaled)
 
 # Split dataset into train and test sets
-X_train,X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state = 88)
+X_train,X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state = 823)
 
 # KNN
 
-modelKNN = KNeighborsClassifier(n_neighbors = 10, weights='distance')
+modelKNN = KNeighborsClassifier(n_neighbors = 14, weights='distance')
 modelKNN.fit(X_train, y_train)
 predictionsKNN = modelKNN.predict(X_test)
 accuracyKNN = metrics.accuracy_score(y_test, predictionsKNN)  
