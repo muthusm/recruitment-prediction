@@ -18,4 +18,4 @@ jobs:
 
           dvc metrics diff --show-md main > report.md
 
-          cmd-send-comment report.md
+          cml-send-comment report.md
